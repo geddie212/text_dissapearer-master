@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Result</title>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+</head>
+<body>
+{% if timer_clicked == True %}
+<div class="wrapper pointer-events-none"></div>
+<div class="flex_wrapper pointer-events-none"></div>
+<div class="input_wrapper">
+    <div class="inner_wrapper">
+        <h3>Your Text</h3>
+        <p>Here is what you wrote:</p>
+<textarea type="text" id="text-box" name="text-box" readonly="true">{{ text }}</textarea>
+<a href="{{ url_for('home') }}" class="start-button" style="margin-top:10px;">start again</a>
+    </div>
+</div>
+{% else %}
+<div class="wrapper pointer-events-none"></div>
+<div class="flex_wrapper pointer-events-none"></div>
+<div class="input_wrapper">
+    <div class="inner_wrapper">
+        <h3>You didn't start the timer</h3>
+        <p>press "start timer" button before writing</p>
+<a href="{{ url_for('home') }}" class="start-button" style="margin-top:10px;">go back</a>
+    </div>
+</div>
+{% endif %}
+</body>
+</html>

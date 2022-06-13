@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+</head>
+<body>
+<p id="update"></p>
+<h1><a href="{{ url_for('start') }}">start typing</a></h1>
+<script type="text/javascript">
+                var intervalID = setInterval(update_values,500);
+                $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+                function update_values() {
+                        $.getJSON($SCRIPT_ROOT + '/progress',
+
+                    function(data) {
+                        $('#result').text(data.result);
+                        console.log(data)
+                    });
+
+                    };
+                    function stopTextColor() {
+                    clearInterval(intervalID);
+                    }
+</script>
+<p>
+    <span id="result"></span>
+    <script>
+            document.getElementById("result").innerHTML;
+
+    </script>
+</p>
+<form action="{{ url_for('show_result') }}", method="post">
+    <input type="text" id="text-box" name="text-box">
+    <button>submit</button>
+</form>
+</body>
+</html>

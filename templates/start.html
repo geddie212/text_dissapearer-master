@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <style>
+ @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    </style>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="wrapper pointer-events-none"></div>
+<div class="flex_wrapper pointer-events-none"></div>
+<div class="input_wrapper">
+    <div class="inner_wrapper">
+        <h3>Text Disappearer</h3>
+        <h1>Your text wasn't saved</h1>
+        <div class="start-button"><a href="{{ url_for('home') }}">start again</a></div>
+    </div>
+</div>
+</body>
+</html>
